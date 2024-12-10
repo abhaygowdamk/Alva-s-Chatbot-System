@@ -1,0 +1,24 @@
+{
+    "intents": [
+      {
+        "intent": "contact_details",
+        "examples": [
+          "What is the contact number?",
+          "Give me the phone number.",
+          "How can I contact them?",
+          "I need the contact information.",
+          "Provide the contact email.",
+          "What is the address?",
+          "Can you give me their phone number?",
+          "What is the best way to contact?",
+          "Do you have their contact details?",
+          "Can I get the email address?",
+          "Tell me the contact details.",
+          "Give me all the contact information.",
+          "Where are they located?",
+          "What is their contact info?"
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot Interface</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>AI Chat Assistant</h1>
+        <p>Intelligent conversations at your service</p>
+      </div>
+      <div class="college-selection">
+        <label for="collegeSelect">Select College:</label>
+        <select id="collegeSelect">
+          <option value="">--Select College--</option>
+          <option value="alvas_college_of_naturopathy_and_yogic_sciences">
+            Alva's College of Naturopathy & Yogic Sciences
+          </option>
+          <option value="alvas_degree_college">Alva's Degree College</option>
+          <option value="alvas_homeopathic_college">
+            Alva's Homeopathic College
+          </option>
+          <option value="alvas_institute_of_engineering_and_technology">
+            Alva's Institute of Engineering and Technology
+          </option>
+          <option value="alvas_mba">Alva's MBA</option>
+          <option value="alvas_pu_college">Alva's PU College</option>
+        </select>
+      </div>
+      <div class="messages" id="messageContainer"></div>
+      <div class="input-container">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button id="sendButton">Send</button>
+        <button id="micButton" title="Speak">🎤</button>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
