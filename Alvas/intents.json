@@ -18,6 +18,18 @@
           "Where are they located?",
           "What is their contact info?"
         ]
+      },
+      {
+        "intent": "about_college",
+        "examples": [
+          "Tell me about the college.",
+          "Give me the details about the college.",
+          "What is this college known for?",
+          "Tell me something about this college.",
+          "Can you describe the college?",
+          "What is the history of this college?",
+          "Tell me about its facilities."
+        ]
       }
     ]
   }

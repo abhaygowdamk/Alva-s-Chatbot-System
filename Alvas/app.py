@@ -67,16 +67,16 @@ def extract_college_from_text(text):
     return None
 
 # Load college data from CSV
-def get_college_data(csv_file):
+def get_college_data(csv_file, data_type="Contact Details"):
     try:
-        # Ensure the file path includes the .csv extension
-        file_path = f'static/{csv_file}.csv'  # Add the .csv extension
-        print(f"Attempting to load CSV file from: {file_path}")  # Log the path
-        # Load the data from the CSV
+        file_path = f'static/{csv_file}.csv'  # Add .csv extension
         data = pd.read_csv(file_path)
-        # Fetch contact details
-        contact_details = data.iloc[0].get('Contact Details', 'No contact details available.')
-        return contact_details
+        if data_type == "Contact Details":
+            contact_details = data.iloc[0].get('Contact Details', 'No contact details available.')
+            return contact_details
+        elif data_type == "About":
+            about_info = data.iloc[0].get('About', 'No information available.')
+            return about_info
     except Exception as e:
         print(f"Error loading CSV file from {file_path}: {e}")
         return "Sorry, I couldn't fetch data for this college."
@@ -95,11 +95,17 @@ def get_intent(message, intents_data):
 def generate_response(intent, message, selected_college_csv):
     if intent == "contact_details":
         if selected_college_csv:
-            return get_college_data(selected_college_csv)
+            return get_college_data(selected_college_csv, "Contact Details")
         else:
             return "Please select a college to get the contact details."
+    elif intent == "about_college":
+        if selected_college_csv:
+            return get_college_data(selected_college_csv, "About")
+        else:
+            return "Please select a college to get more information."
     else:
         return "I couldn't understand your request. Please try again."
+
 
 # Define the /get_response route to handle user queries
 @app.route('/get_response', methods=['POST'])
@@ -125,4 +131,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5002)
+    app.run(debug=True, port=5000)
